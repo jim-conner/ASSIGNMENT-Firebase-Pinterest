@@ -24,6 +24,23 @@ const domEvents = (uid) => {
         }
       });
     }
+
+    if (e.target.id.includes('delete-board-btn')) {
+      if (window.confirm('Delete this board?  This action will delete the board and associated pins.')) {
+        console.warn('CLICKED DELETE PIN', e.target.id);
+        // const firebaseKey = e.target.id.split('--')[1];
+        // deleteBoard(firebaseKey).then((boardsArray) => showBooks(booksArray));
+      }
+    }
+
+    if (e.target.id.includes('delete-pin-btn')) {
+      if (window.confirm('Delete this pin?')) {
+        console.warn('CLICKED DELETE BOARD', e.target.id);
+        // const firebaseKey = e.target.id.split('--')[1];
+        // deletePin(firebaseKey).then((pinsArray) => showBooks(pinsArray));
+      }
+    }
+    // dont mess with syntax below this comment
   });
 };
 

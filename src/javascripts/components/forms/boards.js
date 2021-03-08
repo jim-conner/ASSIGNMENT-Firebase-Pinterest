@@ -10,8 +10,8 @@ const showBoards = (boardsArray) => {
     <div class="card-body">
     <img class="card-img-top" src="${item.image}">
       <h5 class="card-title">${item.first_name} ${item.last_name}</h5>
-      <button class="btn btn-primary" id="show-pin-btn--${item.firebaseKey}">Go to Pins</button>
-      <button class="btn btn-danger" id="delete-book--${item.firebaseKey}">Delete Book</button>
+      <button class="btn btn-primary" id="show-pin-btn">Go to Pins</button>
+      <button class="btn btn-danger" id="delete-board-btn--${item.firebaseKey}">Delete Board</button>
       </div>
     </div>
   </div>`;
