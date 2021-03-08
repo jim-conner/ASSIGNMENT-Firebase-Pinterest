@@ -3,17 +3,15 @@ import firebaseConfig from '../apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-const getBoards = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/boards.json`)
-  // axios.get(`${dbUrl}/boards.json?orderBy="uid"`);
+const getBoards = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
       } else {
-        resolve();
+        resolve([]);
       }
     }).catch((error) => reject(error));
 });
-// will need to add uid
 
 export default getBoards;
