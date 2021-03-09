@@ -1,7 +1,7 @@
 const showBoards = (boardsArray) => {
   document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-board-btn">Add A Board</button>';
-  // document.querySelector('#form-container').innerHTML = '';
-  // document.querySelector('#board-container').innerHTML = '';
+  document.querySelector('#form-container').innerHTML = '';
+  document.querySelector('#board-container').innerHTML = '';
 
   boardsArray.forEach((item) => {
     document.querySelector('#form-container').innerHTML += `

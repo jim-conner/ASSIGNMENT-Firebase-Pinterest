@@ -1,11 +1,19 @@
 import { showBoards, emptyBoards } from '../components/forms/boards';
 import { showPins, emptyPins } from '../components/forms/pins';
-import { getBoards, deleteBoard } from '../helpers/data/boardsData';
-import boardPinsInfo from '../helpers/data/boardPinsData';
+import {
+  getBoards,
+  // deleteBoard
+} from '../helpers/data/boardsData';
+import {
+  deleteBoardPins,
+  boardPinsInfo
+}
+  from '../helpers/data/boardPinsData';
 import boardInfo from '../components/forms/boardInfo';
 import {
   getPins,
   deletePin,
+  // getBoardPins,
   // getBoardPins
 } from '../helpers/data/pinsData';
 
@@ -38,9 +46,12 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('delete-board-btn')) {
-      if (window.confirm('Delete this board?  This action will delete the board and associated pins.')) {
-        const firebaseKey = e.target.id.split('--')[1];
-        deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
+      if (window.confirm('Delete this board and related pins?')) {
+        const authorId = e.target.id.split('--')[1];
+        // deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
+        console.warn(authorId);
+        deleteBoardPins(authorId, uid).then((boardsArray) => showBoards(boardsArray));
+        // getBoardPins(authorId).then((boardPinsArray) => console.warn(boardPinsArray));
       }
     }
 
