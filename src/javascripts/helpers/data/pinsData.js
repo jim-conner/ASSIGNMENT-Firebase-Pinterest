@@ -5,7 +5,7 @@ const dbUrl = firebaseConfig.databaseURL;
 
 const getPins = (uid) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
-  // need to filter by board_id and also change board_id to camel case
+
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -15,10 +15,16 @@ const getPins = (uid) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const deletePin = (firebaseKey) => new Promise((resolve, reject) => {
+const deletePin = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/pins/${firebaseKey}.json`)
-    .then(() => getPins().then((pinsArray) => resolve(pinsArray)))
+    .then(() => getPins(uid).then((pinsArray) => resolve(pinsArray)))
     .catch((error) => reject(error));
 });
 
-export default { getPins, deletePin };
+const getBoardPins = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins.json?orderBy="board_id"&equalTo="${boardId}"`)
+    .then((reponse) => resolve(Object.values(reponse.data)))
+    .catch((error) => reject(error));
+});
+
+export { getPins, deletePin, getBoardPins };

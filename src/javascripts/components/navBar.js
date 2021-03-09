@@ -16,6 +16,7 @@ const navBar = () => {
         <div id="create-board-nav"></div>
       </li>
     </ul>
+    '<button id="google-auth" class="btn btn-danger">SIGNOUT</button>';
   </div>
 </nav>
 `;
