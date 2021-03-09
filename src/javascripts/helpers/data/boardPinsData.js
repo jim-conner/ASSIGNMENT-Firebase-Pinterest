@@ -1,11 +1,15 @@
 // import { getBoards, deleteBoard } from '../helpers/data/boardsData';
 // import { getPins, deletePin } from '../helpers/data/pinsData';
-import { getSingleBoard } from './boardsData';
-import { getBoardPins } from './pinsData';
+import { deleteBoard, getSingleBoard } from './boardsData';
+import { deletePin, getBoardPins } from './pinsData';
 
-// const deleteBoardPins = (boardId, uid) => new Promise((resolve) => {
-//   Promise.all([getSingleBoard])
-// });
+const deleteBoardPins = (boardId, uid) => new Promise((resolve, reject) => {
+  getBoardPins(boardId).then((boardPinsArray) => {
+    const deletePins = boardPinsArray.map((pin) => deletePin(pin.firebaseKey));
+    // console.warn(deletePins);
+    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, uid)));
+  }).catch((error) => reject(error));
+});
 
 const boardPinsInfo = (boardId) => new Promise((resolve, reject) => {
   Promise.all([getSingleBoard(boardId), getBoardPins(boardId)])
@@ -15,4 +19,4 @@ const boardPinsInfo = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default boardPinsInfo;
+export { deleteBoardPins, boardPinsInfo };
