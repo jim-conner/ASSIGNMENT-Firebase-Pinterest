@@ -1,8 +1,10 @@
 const navBar = () => {
   document.querySelector('#navigation').innerHTML = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Pinterest</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" 
+  data-toggle="collapse" data-target="#navbarNav" 
+  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -14,6 +16,7 @@ const navBar = () => {
         <div id="create-board-nav"></div>
       </li>
     </ul>
+    '<button id="google-auth" class="btn btn-danger">SIGNOUT</button>';
   </div>
 </nav>
 `;
