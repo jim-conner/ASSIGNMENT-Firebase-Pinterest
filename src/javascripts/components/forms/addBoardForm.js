@@ -26,7 +26,7 @@ const addBoardForm = () => {
 </div>
   <div class="form-group" id="select-author">
     </div>
-  <button type="submit" id="submit-board" class="btn btn-primary">Submit board</button>
+  <button type="submit" id="submit-board" class="btn btn-success">Submit board</button>
 </form>`;
 
   // selectBoard(); does this go here?

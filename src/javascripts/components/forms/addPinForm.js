@@ -1,4 +1,4 @@
-// import selectBoard from './selectBoard';
+import selectBoard from './selectBoard';
 
 const addPinForm = () => {
   document.querySelector('#form-container').innerHTML = '';
@@ -16,10 +16,12 @@ const addPinForm = () => {
   <label for="image">Image URL</label>
   <input type="text" class="form-control" id="pin-description" placeholder="Description" required>
 </div>
+<div class="form-group" id="select-board">
+      </div>
   <button type="submit" id="submit-pin" class="btn btn-primary">Submit Pin</button>
 </form>`;
 
-// selectPin();
+  selectBoard();
 };
 
 export default addPinForm;
