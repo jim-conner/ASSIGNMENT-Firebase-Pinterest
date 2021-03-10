@@ -2,6 +2,7 @@ import { showBoards, emptyBoards } from '../components/forms/boards';
 import { showPins, emptyPins } from '../components/forms/pins';
 import {
   getBoards,
+  createBoard,
   // deleteBoard
 } from '../helpers/data/boardsData';
 import {
@@ -26,14 +27,14 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-board')) {
-      console.warn('clicked submit board', e.target.id);
+      // console.warn('clicked submit board', e.target.id);
       e.preventDefault();
       const boardObject = {
-        image: '',
-        firstName: '',
-        lastName: '',
+        image: document.querySelector('#board-image').value,
+        firstName: document.querySelector('#first-name').value,
+        // lastName: document.querySelector('#last-name').value
       };
-      console.warn(boardObject);
+      createBoard(boardObject).then((boardsArray) => showBoards(boardsArray));
     }
 
     // if (e.target.id.includes('submit-pin')) {
