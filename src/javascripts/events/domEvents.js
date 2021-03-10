@@ -2,6 +2,7 @@ import { showBoards, emptyBoards } from '../components/forms/boards';
 import { showPins, emptyPins } from '../components/forms/pins';
 import {
   getBoards,
+  createBoard,
   // deleteBoard
 } from '../helpers/data/boardsData';
 import {
@@ -16,9 +17,36 @@ import {
   // getBoardPins,
   // getBoardPins
 } from '../helpers/data/pinsData';
+import addBoardForm from '../components/forms/addBoardForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
+    if (e.target.id.includes('add-board-btn')) {
+      console.warn('clicked add board', e.target.id);
+      addBoardForm();
+    }
+
+    if (e.target.id.includes('submit-board')) {
+      // console.warn('clicked submit board', e.target.id);
+      e.preventDefault();
+      const boardObject = {
+        image: document.querySelector('#board-image').value,
+        firstName: document.querySelector('#first-name').value,
+        // lastName: document.querySelector('#last-name').value
+      };
+      createBoard(boardObject).then((boardsArray) => showBoards(boardsArray));
+    }
+
+    // if (e.target.id.includes('submit-pin')) {
+    //   console.warn('clicked submit pin', e.target.id);
+    //   e.preventDefault();
+    //   const pinObject = {
+    //     image: '',
+    //     Title: '',
+    //     board_id: '',
+    //   };
+    // }
+
     if (e.target.id.includes('show-pin-btn')) {
       getPins(uid).then((pinsArray) => {
         if (pinsArray.length) {

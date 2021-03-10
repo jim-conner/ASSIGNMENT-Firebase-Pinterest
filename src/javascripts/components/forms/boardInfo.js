@@ -1,4 +1,4 @@
-// import authorBookInfo from "../../helpers/data/boardPinsData";
+// import  from "../../helpers/data/boardPinsData";
 
 const boardInfo = (boardObject) => {
   document.querySelector('#form-container').innerHTML += `
