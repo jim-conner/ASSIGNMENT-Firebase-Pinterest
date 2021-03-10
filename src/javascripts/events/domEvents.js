@@ -53,7 +53,7 @@ const domEvents = (uid) => {
         image: document.querySelector('#pin-image').value,
         Title: document.querySelector('#pin-title').value,
         Description: document.querySelector('#pin-description').value,
-        board_id: document.querySelector('#board').value,
+        board_id: document.querySelector('#board-select').value,
         uid
       };
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));

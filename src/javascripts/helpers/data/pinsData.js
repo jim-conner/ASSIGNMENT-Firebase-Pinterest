@@ -8,7 +8,8 @@ const getPins = (uid) => new Promise((resolve, reject) => {
 
     .then((response) => {
       if (response.data) {
-        resolve(Object.values(response.data));
+        const pinsArray = Object.values(response.data);
+        resolve(pinsArray);
       } else {
         resolve([]);
       }

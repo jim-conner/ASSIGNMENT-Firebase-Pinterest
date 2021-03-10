@@ -24,7 +24,6 @@ const addBoardForm = () => {
   <input type="text" class="form-control" id="last-name"
   placeholder="Last Name" required>
 </div>
-  <div class="form-group" id="select-author">
     </div>
   <button type="submit" id="submit-board" class="btn btn-success">Submit board</button>
 </form>`;
