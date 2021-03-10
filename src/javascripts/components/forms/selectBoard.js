@@ -1,14 +1,18 @@
+import firebase from 'firebase/app';
 import { getBoards } from '../../helpers/data/boardsData';
 
-const selectBoard = () => {
+const selectBoard = (boardObject = {}) => {
   let domString = `<label for="board">Select a Board</label>
-  <select class="form-control" id="board-select" required>
+  <select class="form-control" id="board" required>
   <option value="">Select a Board</option>`;
 
-  getBoards().then((boardsArray) => {
+  getBoards(firebase.auth().currentUser.uid).then((boardsArray) => {
     boardsArray.forEach((board) => {
-      console.warn(board);
-      domString += `<option value="${board.firebaseKey}">${board.first_name}${board.last_name}</option>`;
+      if (board.firebaseKey === boardObject.board_id) {
+        domString += `<option value="${board.firebaseKey}">${board.first_name}${board.last_name}</option>`;
+      } else {
+        domString += `<option value="${board.firebaseKey}">${board.first_name}${board.last_name}</option>`;
+      }
     });
 
     domString += '</select>';
