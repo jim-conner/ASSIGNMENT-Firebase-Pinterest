@@ -14,16 +14,21 @@ const addBoardForm = () => {
     <input type="url" class="form-control" id="board-image" placeholder="Image URL" required>
   </div>
   <div class="form-group">
-    <label for="price">First Name</label>
+    <label for="First Name">First Name</label>
     <input type="text" class="form-control" id="first-name"
     placeholder="First Name" required>
   </div>
+  <div class="form-group">
+  <label for="Last Name">First Name</label>
+  <input type="text" class="form-control" id="last-name"
+  placeholder="Last Name" required>
+</div>
   <div class="form-group" id="select-author">
     </div>
   <button type="submit" id="submit-board" class="btn btn-primary">Submit board</button>
 </form>`;
 
-  // selectBoard();
+  // selectBoard(); does this go here?
 };
 
 export default addBoardForm;

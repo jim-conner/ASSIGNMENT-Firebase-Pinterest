@@ -1,5 +1,5 @@
 import { showBoards, emptyBoards } from '../components/forms/boards';
-import { showPins, emptyPins } from '../components/forms/pins';
+import { showPins } from '../components/forms/pins';
 import {
   getBoards,
   createBoard,
@@ -10,9 +10,9 @@ import {
   boardPinsInfo
 }
   from '../helpers/data/boardPinsData';
-import boardInfo from '../components/forms/boardInfo';
+// import boardInfo from '../components/forms/boardInfo';
 import {
-  getPins,
+  // getPins,
   deletePin,
   // getBoardPins,
   // getBoardPins
@@ -31,10 +31,11 @@ const domEvents = (uid) => {
       e.preventDefault();
       const boardObject = {
         image: document.querySelector('#board-image').value,
-        firstName: document.querySelector('#first-name').value,
-        // lastName: document.querySelector('#last-name').value
+        first_name: document.querySelector('#first-name').value,
+        last_name: document.querySelector('#last-name').value,
+        uid
       };
-      createBoard(boardObject).then((boardsArray) => showBoards(boardsArray));
+      createBoard(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
     }
 
     // if (e.target.id.includes('submit-pin')) {
@@ -47,19 +48,21 @@ const domEvents = (uid) => {
     //   };
     // }
 
+    // SHOW ALL PINS FOR BOARD
     if (e.target.id.includes('show-pin-btn')) {
-      getPins(uid).then((pinsArray) => {
-        if (pinsArray.length) {
-          showPins(pinsArray);
-        } else {
-          emptyPins();
-        }
-      });
+      // getPins(uid).then((pinsArray) => {
+      //   if (pinsArray.length) {
+      //     showPins(pinsArray);
+      //     console.warn(pinsArray);
+      //   } else {
+      //     emptyPins();
+      //   }
+      // });
       const boardId = e.target.id.split('--')[1];
       boardPinsInfo(boardId).then((boardInfoObject) => {
-        console.warn(boardId);
         showPins(boardInfoObject.pins);
-        boardInfo(boardInfoObject.board);
+        // boardInfo(boardInfoObject.board);
+        // console.warn(boardInfoObject);
       });
     }
 
