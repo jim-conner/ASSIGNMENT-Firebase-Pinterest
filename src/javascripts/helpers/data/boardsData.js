@@ -4,6 +4,7 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 const getBoards = (uid) => new Promise((resolve, reject) => {
+  // console.warn(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`);
   axios.get(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
@@ -32,6 +33,7 @@ const deleteBoard = (firebaseKey, uid) => new Promise((resolve, reject) => {
 });
 
 const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
+  // console.warn(`${dbUrl}/boards/${boardId}.json`);
   axios.get(`${dbUrl}/boards/${boardId}.json`)
     .then((reponse) => resolve(reponse.data))
     .catch((error) => reject(error));

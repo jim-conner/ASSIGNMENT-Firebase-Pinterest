@@ -1,5 +1,5 @@
 const showPins = (pinsArray) => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-primary btn-lg mb-4" id="back-btn">Back to Boards</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-pin-btn">Add A Pin</button><button class="btn btn-primary btn-lg mb-4" id="back-btn">Back to Boards</button>';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#board-container').innerHTML = '';
 
