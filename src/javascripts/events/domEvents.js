@@ -13,11 +13,13 @@ import {
 // import boardInfo from '../components/forms/boardInfo';
 import {
   // getPins,
+  createPin,
   deletePin,
   // getBoardPins,
   // getBoardPins
 } from '../helpers/data/pinsData';
 import addBoardForm from '../components/forms/addBoardForm';
+import addPinForm from '../components/forms/addPinForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -26,6 +28,12 @@ const domEvents = (uid) => {
       addBoardForm();
     }
 
+    if (e.target.id.includes('add-pin-btn')) {
+      console.warn('clicked add pin', e.target.id);
+      addPinForm();
+    }
+
+    // CREATE
     if (e.target.id.includes('submit-board')) {
       // console.warn('clicked submit board', e.target.id);
       e.preventDefault();
@@ -38,17 +46,19 @@ const domEvents = (uid) => {
       createBoard(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
     }
 
-    // if (e.target.id.includes('submit-pin')) {
-    //   console.warn('clicked submit pin', e.target.id);
-    //   e.preventDefault();
-    //   const pinObject = {
-    //     image: '',
-    //     Title: '',
-    //     board_id: '',
-    //   };
-    // }
+    if (e.target.id.includes('submit-pin')) {
+      console.warn('clicked submit pin', e.target.id);
+      e.preventDefault();
+      const pinObject = {
+        image: document.querySelector('#pin-image').value,
+        Title: document.querySelector('#pin-title').value,
+        Description: document.querySelector('#pin-description').value,
+        // board_id: ''
+      };
+      createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
+    }
 
-    // SHOW ALL PINS FOR BOARD
+    // READ
     if (e.target.id.includes('show-pin-btn')) {
       // getPins(uid).then((pinsArray) => {
       //   if (pinsArray.length) {
@@ -76,6 +86,7 @@ const domEvents = (uid) => {
       });
     }
 
+    // DELETE
     if (e.target.id.includes('delete-board-btn')) {
       if (window.confirm('Delete this board and related pins?')) {
         const authorId = e.target.id.split('--')[1];

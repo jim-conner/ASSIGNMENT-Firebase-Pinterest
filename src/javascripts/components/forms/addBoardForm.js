@@ -1,8 +1,9 @@
 // import selectBoard from './selectBoard';
 
 const addBoardForm = () => {
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-primary btn-lg mb-4" id="back-btn">Back to Boards</button>';
+  // document.querySelector('#add-board-btn').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
-  document.querySelector('#add-board-btn').innerHTML = '';
   document.querySelector('#board-container').innerHTML += `
   <form id="submit-board-form" class="mb-4">
     <div div class="form-group">
