@@ -47,13 +47,14 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-pin')) {
-      console.warn('clicked submit pin', e.target.id);
+      // console.warn('clicked submit pin', e.target.id);
       e.preventDefault();
       const pinObject = {
         image: document.querySelector('#pin-image').value,
         Title: document.querySelector('#pin-title').value,
         Description: document.querySelector('#pin-description').value,
-        // board_id: ''
+        board_id: document.querySelector('#board').value,
+        uid
       };
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
@@ -91,13 +92,14 @@ const domEvents = (uid) => {
       if (window.confirm('Delete this board and related pins?')) {
         const authorId = e.target.id.split('--')[1];
         // deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
-        console.warn(authorId);
+        // console.warn(authorId);
         deleteBoardPins(authorId, uid).then((boardsArray) => showBoards(boardsArray));
         // getBoardPins(authorId).then((boardPinsArray) => console.warn(boardPinsArray));
       }
     }
 
     if (e.target.id.includes('delete-pin-btn')) {
+      // e.preventDefault();
       if (window.confirm('Delete this pin?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));

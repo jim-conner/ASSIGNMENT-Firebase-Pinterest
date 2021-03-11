@@ -8,7 +8,8 @@ const getBoards = (uid) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
-        resolve(Object.values(response.data));
+        const boardsArray = Object.values(response.data);
+        resolve(boardsArray);
       } else {
         resolve([]);
       }
