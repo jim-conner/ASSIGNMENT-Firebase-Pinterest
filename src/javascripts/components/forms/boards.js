@@ -3,15 +3,15 @@ const showBoards = (boardsArray) => {
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#board-container').innerHTML = '';
 
-  boardsArray.forEach((item) => {
+  boardsArray.forEach((board) => {
     document.querySelector('#form-container').innerHTML += `
     <div class="card" style="width: 18rem; 
     id="board-card">
     <div class="card-body">
-    <img class="card-img-top" src="${item.image}">
-      <h5 class="card-title">${item.first_name} ${item.last_name}</h5>
-      <button class="btn btn-primary" id="show-pin-btn--${item.firebaseKey}">Go to Pins</button>
-      <button class="btn btn-danger" id="delete-board-btn--${item.firebaseKey}">Delete Board</button>
+    <img class="card-img-top" src="${board.image}">
+      <h5 class="card-title">${board.first_name} ${board.last_name}</h5>
+      <button class="btn btn-primary" id="show-pin-btn--${board.firebaseKey}">Go to Pins</button>
+      <button class="btn btn-danger" id="delete-board-btn--${board.firebaseKey}">Delete Board</button>
       </div>
     </div>
   </div>`;

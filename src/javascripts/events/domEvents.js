@@ -20,9 +20,11 @@ import {
 } from '../helpers/data/pinsData';
 import addBoardForm from '../components/forms/addBoardForm';
 import addPinForm from '../components/forms/addPinForm';
+// import updatePinForm from '../components/forms/updatePinForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
+    // CREATE(ADD)
     if (e.target.id.includes('add-board-btn')) {
       console.warn('clicked add board', e.target.id);
       addBoardForm();
@@ -33,7 +35,6 @@ const domEvents = (uid) => {
       addPinForm();
     }
 
-    // CREATE
     if (e.target.id.includes('submit-board')) {
       // console.warn('clicked submit board', e.target.id);
       e.preventDefault();
@@ -85,6 +86,22 @@ const domEvents = (uid) => {
           emptyBoards();
         }
       });
+    }
+
+    // UPDATE
+    if (e.target.id.includes('update-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      console.warn(e.target.id);
+      e.preventDefault();
+      const pinObject = {
+        image: document.querySelector('#pin-image').value,
+        Title: document.querySelector('#pin-title').value,
+        Description: document.querySelector('#pin-description').value,
+        board_id: document.querySelector('#board').value
+      };
+      console.warn(firebaseKey);
+      console.warn(pinObject);
+      // updatePinForm(pinObject);
     }
 
     // DELETE

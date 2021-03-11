@@ -3,14 +3,15 @@ const showPins = (pinsArray) => {
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#board-container').innerHTML = '';
 
-  pinsArray.forEach((item) => {
+  pinsArray.forEach((pin) => {
     document.querySelector('#form-container').innerHTML += `
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" alt="${item.Title}"src="${item.image}">
+    <img class="card-img-top" alt="${pin.Title}"src="${pin.image}">
     <div class="card-body">
-    <h5 class="card-title">${item.Title}</h5>
-    <p class="card-text">${item.Description}</p>
-    <button class="btn btn-danger" id="delete-pin-btn--${item.firebaseKey}">Delete Pin</button>
+    <h5 class="card-title">${pin.Title}</h5>
+    <p class="card-text">${pin.Description}</p>
+    <button class="btn btn-primary" id="update-pin-btn--${pin.firebaseKey}">Update Pin</button>
+    <button class="btn btn-danger" id="delete-pin-btn--${pin.firebaseKey}">Delete Pin</button>
     </div>
   </div>
   </div>`;
