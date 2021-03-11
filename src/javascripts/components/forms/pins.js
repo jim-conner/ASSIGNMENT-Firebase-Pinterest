@@ -10,7 +10,7 @@ const showPins = (pinsArray) => {
     <div class="card-body">
     <h5 class="card-title">${pin.Title}</h5>
     <p class="card-text">${pin.Description}</p>
-    <button class="btn btn-primary" id="update-pin-btn--${pin.firebaseKey}">Update Pin</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#formModal" id="update-pin-btn--${pin.firebaseKey}">Update Pin</button>
     <button class="btn btn-danger" id="delete-pin-btn--${pin.firebaseKey}">Delete Pin</button>
     </div>
   </div>

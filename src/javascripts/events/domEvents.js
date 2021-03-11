@@ -15,16 +15,17 @@ import {
   // getPins,
   createPin,
   deletePin,
-  // getBoardPins,
-  // getBoardPins
+  getSinglePin
 } from '../helpers/data/pinsData';
 import addBoardForm from '../components/forms/addBoardForm';
 import addPinForm from '../components/forms/addPinForm';
+import updatePinForm from '../components/forms/updatePinForm';
+import formModal from '../components/forms/formModal';
 // import updatePinForm from '../components/forms/updatePinForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
-    // CREATE(ADD)
+    // CREATE
     if (e.target.id.includes('add-board-btn')) {
       console.warn('clicked add board', e.target.id);
       addBoardForm();
@@ -90,9 +91,9 @@ const domEvents = (uid) => {
 
     // UPDATE
     if (e.target.id.includes('update-pin-btn')) {
-      // const firebaseKey = e.target.id.split('--')[1];
-      // updatePinForm();
-      console.warn('clicked update pin', e.target.id);
+      const firebaseKey = e.target.id.split('--')[1];
+      formModal('Edit Pin');
+      getSinglePin(firebaseKey).then((pinObject) => updatePinForm(pinObject));
     }
     // if (e.target.id.includes('update-pin-btn')) {
     //   const firebaseKey = e.target.id.split('--')[1];
