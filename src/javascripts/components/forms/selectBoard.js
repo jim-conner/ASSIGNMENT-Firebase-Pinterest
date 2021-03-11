@@ -9,9 +9,9 @@ const selectBoard = (boardObject = {}) => {
   getBoards(firebase.auth().currentUser.uid).then((boardsArray) => {
     boardsArray.forEach((board) => {
       if (board.firebaseKey === boardObject.board_id) {
-        domString += `<option value="${board.firebaseKey}">${board.first_name}${board.last_name}</option>`;
+        domString += `<option value="${board.firebaseKey}">${board.first_name} ${board.last_name}</option>`;
       } else {
-        domString += `<option value="${board.firebaseKey}">${board.first_name}${board.last_name}</option>`;
+        domString += `<option value="${board.firebaseKey}">${board.first_name} ${board.last_name}</option>`;
       }
     });
 
