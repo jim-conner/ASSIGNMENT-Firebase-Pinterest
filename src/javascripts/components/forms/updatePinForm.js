@@ -2,8 +2,9 @@ import selectBoard from './selectBoard';
 
 const updatePinForm = (pinObject) => {
   // document.querySelector('#add-button').innerHTML = '';
+  // document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#board-container').innerHTML += `
-  <form id="edit-pin-form" class="mb-4">
+  <form id="update-pin-form" class="mb-4">
     <div class="form-group">
       <label for="image">Image URL</label>
       <input type="url" class="form-control" id="pin-image" 

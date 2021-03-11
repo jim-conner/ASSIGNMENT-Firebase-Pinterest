@@ -90,19 +90,24 @@ const domEvents = (uid) => {
 
     // UPDATE
     if (e.target.id.includes('update-pin-btn')) {
-      const firebaseKey = e.target.id.split('--')[1];
-      console.warn(e.target.id);
-      e.preventDefault();
-      const pinObject = {
-        image: document.querySelector('#pin-image').value,
-        Title: document.querySelector('#pin-title').value,
-        Description: document.querySelector('#pin-description').value,
-        board_id: document.querySelector('#board').value
-      };
-      console.warn(firebaseKey);
-      console.warn(pinObject);
-      // updatePinForm(pinObject);
+      // const firebaseKey = e.target.id.split('--')[1];
+      // updatePinForm();
+      console.warn('clicked update pin', e.target.id);
     }
+    // if (e.target.id.includes('update-pin-btn')) {
+    //   const firebaseKey = e.target.id.split('--')[1];
+    //   console.warn(e.target.id);
+    //   e.preventDefault();
+    //   const pinObject = {
+    //     image: document.querySelector('#pin-image').value,
+    //     Title: document.querySelector('#pin-title').value,
+    //     Description: document.querySelector('#pin-description').value,
+    //     board_id: document.querySelector('#board').value
+    //   };
+    //   console.warn(firebaseKey);
+    //   console.warn(pinObject);
+    //   // updatePinForm(pinObject);
+    // }
 
     // DELETE
     if (e.target.id.includes('delete-board-btn')) {
