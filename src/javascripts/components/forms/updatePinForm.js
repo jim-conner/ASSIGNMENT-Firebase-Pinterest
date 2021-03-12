@@ -22,7 +22,7 @@ const updatePinForm = (pinObject) => {
         placeholder="Description" value="${pinObject.Description}" required>
     </div>
     <div class="form-group" id="select-board"></div>  
-    <button type="button" id="update-pin-btn--${pinObject.firebaseKey}" class="btn btn-primary">Update Pin</button>
+    <button type="submit" id="update-pin-btn--${pinObject.firebaseKey}" class="btn btn-primary">Submit Update</button>
   </form>`;
 
   selectBoard(pinObject);

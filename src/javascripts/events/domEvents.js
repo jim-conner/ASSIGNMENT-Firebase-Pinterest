@@ -15,13 +15,13 @@ import {
   // getPins,
   createPin,
   deletePin,
-  getSinglePin
+  getSinglePin,
+  updatePin
 } from '../helpers/data/pinsData';
 import addBoardForm from '../components/forms/addBoardForm';
 import addPinForm from '../components/forms/addPinForm';
 import updatePinForm from '../components/forms/updatePinForm';
 import formModal from '../components/forms/formModal';
-// import updatePinForm from '../components/forms/updatePinForm';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -90,25 +90,28 @@ const domEvents = (uid) => {
     }
 
     // UPDATE
-    if (e.target.id.includes('update-pin-btn')) {
+    if (e.target.id.includes('edit-pin-btn')) {
       const firebaseKey = e.target.id.split('--')[1];
       formModal('Edit Pin');
       getSinglePin(firebaseKey).then((pinObject) => updatePinForm(pinObject));
     }
-    // if (e.target.id.includes('update-pin-btn')) {
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   console.warn(e.target.id);
-    //   e.preventDefault();
-    //   const pinObject = {
-    //     image: document.querySelector('#pin-image').value,
-    //     Title: document.querySelector('#pin-title').value,
-    //     Description: document.querySelector('#pin-description').value,
-    //     board_id: document.querySelector('#board').value
-    //   };
-    //   console.warn(firebaseKey);
-    //   console.warn(pinObject);
-    //   // updatePinForm(pinObject);
-    // }
+
+    if (e.target.id.includes('update-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      console.warn(e.target.id);
+      e.preventDefault();
+      const pinObject = {
+        image: document.querySelector('#pin-image').value,
+        Title: document.querySelector('#pin-title').value,
+        Description: document.querySelector('#pin-description').value,
+        board_id: document.querySelector('#board').value,
+        uid
+      };
+      console.warn(firebaseKey, pinObject);
+      updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
+
+      $('#formModal').modal('toggle');
+    }
 
     // DELETE
     if (e.target.id.includes('delete-board-btn')) {

@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
@@ -45,10 +47,17 @@ const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const updatePin = (firebaseKey, bookObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/pins/${firebaseKey}.json`, bookObject)
+    .then(() => getPins(firebase.auth().currentUser.uid)).then((pinsArray) => resolve(pinsArray))
+    .catch((error) => reject(error));
+});
+
 export {
   getPins,
   createPin,
   deletePin,
   getBoardPins,
-  getSinglePin
+  getSinglePin,
+  updatePin
 };
