@@ -14,7 +14,7 @@ const addPinForm = () => {
     <input type="url" class="form-control" id="pin-image" placeholder="Image URL" required>
   </div>
   <div class="form-group">
-  <label for="image">Image URL</label>
+  <label for="description">Image URL</label>
   <input type="text" class="form-control" id="pin-description" placeholder="Description" required>
 </div>
 <div class="form-group" id="select-board">

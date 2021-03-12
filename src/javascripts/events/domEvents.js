@@ -15,14 +15,17 @@ import {
   // getPins,
   createPin,
   deletePin,
-  // getBoardPins,
-  // getBoardPins
+  getSinglePin,
+  updatePin
 } from '../helpers/data/pinsData';
 import addBoardForm from '../components/forms/addBoardForm';
 import addPinForm from '../components/forms/addPinForm';
+import updatePinForm from '../components/forms/updatePinForm';
+import formModal from '../components/forms/formModal';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
+    // CREATE
     if (e.target.id.includes('add-board-btn')) {
       console.warn('clicked add board', e.target.id);
       addBoardForm();
@@ -33,7 +36,6 @@ const domEvents = (uid) => {
       addPinForm();
     }
 
-    // CREATE
     if (e.target.id.includes('submit-board')) {
       // console.warn('clicked submit board', e.target.id);
       e.preventDefault();
@@ -85,6 +87,30 @@ const domEvents = (uid) => {
           emptyBoards();
         }
       });
+    }
+
+    // UPDATE
+    if (e.target.id.includes('edit-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      formModal('Edit Pin');
+      getSinglePin(firebaseKey).then((pinObject) => updatePinForm(pinObject));
+    }
+
+    if (e.target.id.includes('update-pin-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      console.warn(e.target.id);
+      e.preventDefault();
+      const pinObject = {
+        image: document.querySelector('#pin-image').value,
+        Title: document.querySelector('#pin-title').value,
+        Description: document.querySelector('#pin-description').value,
+        board_id: document.querySelector('#board').value,
+        uid
+      };
+      console.warn(firebaseKey, pinObject);
+      updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
+
+      $('#formModal').modal('toggle');
     }
 
     // DELETE

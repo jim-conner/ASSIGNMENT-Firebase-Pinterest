@@ -1,6 +1,5 @@
-// USE WITH FIREBASE AUTH
 import checkLoginStatus from './helpers/auth/router';
-import 'bootstrap'; // import bootstrap elements and js
+import 'bootstrap';
 import '../styles/main.scss';
 
 const init = () => {
