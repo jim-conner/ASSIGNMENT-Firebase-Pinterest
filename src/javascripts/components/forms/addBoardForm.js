@@ -27,8 +27,6 @@ const addBoardForm = () => {
     </div>
   <button type="submit" id="submit-board" class="btn btn-success">Submit board</button>
 </form>`;
-
-  // selectBoard(); does this go here?
 };
 
 export default addBoardForm;
