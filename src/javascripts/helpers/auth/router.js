@@ -9,11 +9,7 @@ const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       startApp(user);
-      document.querySelector('#create-board-nav').innerHTML = '<a class="nav-link" href="#">Create Board</a>';
-      // person is logged in do something...
     } else {
-      // person is NOT logged in
-      // document.querySelector('#create-board-nav').innerHTML = '';
       loginButton();
     }
   });

@@ -2,7 +2,7 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
-  background-color: antiquewhite;
+  background-color: rgb(43, 28, 112);
   color: brown;
   text-align: center;
   margin-top: 100px;
@@ -15,4 +15,14 @@ body {
   text-align: center;
   margin: auto;
   justify-content: center;
+}
+
+.navbar-brand {
+  font-style: italic;
+}
+
+#navbarNav {
+  position: absolute;
+  top: 0px;
+  right: 50px;
 }
