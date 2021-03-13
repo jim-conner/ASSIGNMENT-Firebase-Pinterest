@@ -1,12 +1,13 @@
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-const getPins = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
+const getPins = (boardId) => new Promise((resolve, reject) => {
+  // axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
+  axios.get(`${dbUrl}/pins.json?orderBy="board_id"&equalTo="${boardId}"`)
 
     .then((response) => {
       if (response.data) {
@@ -47,9 +48,9 @@ const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const updatePin = (firebaseKey, bookObject) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/pins/${firebaseKey}.json`, bookObject)
-    .then(() => getPins(firebase.auth().currentUser.uid)).then((pinsArray) => resolve(pinsArray))
+const updatePin = (firebaseKey, pinObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/pins/${firebaseKey}.json`, pinObject)
+    .then(() => getPins(pinObject.board_id)).then((pinsArray) => resolve(pinsArray))
     .catch((error) => reject(error));
 });
 
