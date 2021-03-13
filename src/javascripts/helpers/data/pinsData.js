@@ -19,13 +19,13 @@ const getPins = (boardId) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const createPin = (pinObject, uid) => new Promise((resolve, reject) => {
+const createPin = (pinObject) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/pins.json`, pinObject)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/pins/${response.data.name}.json`, body)
         .then(() => {
-          getPins(uid).then((pinsArray) => resolve(pinsArray));
+          getPins(pinObject.board_id).then((pinsArray) => resolve(pinsArray));
         });
     }).catch((error) => reject(error));
 });

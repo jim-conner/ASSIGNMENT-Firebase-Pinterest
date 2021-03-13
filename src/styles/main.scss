@@ -17,6 +17,12 @@ body {
   justify-content: center;
 }
 
-// .card {
-//   background-color: rosybrown;
-// }
+.navbar-brand {
+  font-style: italic;
+}
+
+#navbarNav {
+  position: absolute;
+  top: 0px;
+  right: 50px;
+}
