@@ -8,9 +8,11 @@ The project requires a Google account to log in.
 
 
 ### Figma frames
+https://www.figma.com/file/2qwX4uFcGfwpeWFZ9bgPhO/Pinterest?node-id=0%3A1
 
 ### Project Board
 https://github.com/jim-conner/ASSIGNMENT-Firebase-Pinterest/projects/1
+
 ### Deployed Project
 https://cocky-thompson-8c4909.netlify.app/ [![Netlify Status](https://api.netlify.com/api/v1/badges/0984cab0-32f6-46d7-ba14-ce3cb4e50244/deploy-status)](https://app.netlify.com/sites/cocky-thompson-8c4909/deploys)
 ### Loom video
