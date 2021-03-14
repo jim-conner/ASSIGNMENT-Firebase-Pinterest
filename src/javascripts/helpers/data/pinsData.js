@@ -6,7 +6,6 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 const getPins = (boardId) => new Promise((resolve, reject) => {
-  // axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
   axios.get(`${dbUrl}/pins.json?orderBy="board_id"&equalTo="${boardId}"`)
 
     .then((response) => {
@@ -30,9 +29,9 @@ const createPin = (pinObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const deletePin = (firebaseKey, uid) => new Promise((resolve, reject) => {
+const deletePin = (firebaseKey, boardId) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/pins/${firebaseKey}.json`)
-    .then(() => getPins(uid).then((pinsArray) => resolve(pinsArray)))
+    .then(() => getPins(boardId).then((pinsArray) => resolve(pinsArray)))
     .catch((error) => reject(error));
 });
 
