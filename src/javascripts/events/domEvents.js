@@ -117,15 +117,11 @@ const domEvents = (uid) => {
     if (e.target.id.includes('delete-board-btn')) {
       if (window.confirm('Delete this board and related pins?')) {
         const authorId = e.target.id.split('--')[1];
-        // deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
-        // console.warn(authorId);
         deleteBoardPins(authorId, uid).then((boardsArray) => showBoards(boardsArray));
-        // getBoardPins(authorId).then((boardPinsArray) => console.warn(boardPinsArray));
       }
     }
 
     if (e.target.id.includes('delete-pin-btn')) {
-      // e.preventDefault();
       if (window.confirm('Delete this pin?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
