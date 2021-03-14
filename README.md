@@ -16,7 +16,7 @@ https://github.com/jim-conner/ASSIGNMENT-Firebase-Pinterest/projects/1
 ### Deployed Project
 https://cocky-thompson-8c4909.netlify.app/ [![Netlify Status](https://api.netlify.com/api/v1/badges/0984cab0-32f6-46d7-ba14-ce3cb4e50244/deploy-status)](https://app.netlify.com/sites/cocky-thompson-8c4909/deploys)
 ### Loom video
-
+https://www.loom.com/share/70ecf5b9b95947c1a62225c52f67987a
 
 ### Features
 - User sees pre-loaded data at start and can create new boards and pins.
