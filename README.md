@@ -1,4 +1,4 @@
-# ASSIGNMENT-PINTEREST using Firebase
+# ASSIGNMENT-PINTEREST w/ Firebase
 
 ## Overview 
 Pinterest enables the user to add boards per subject, then add pinned cards of interest related to the subject.\
