@@ -3,16 +3,13 @@ import { showPins } from '../components/forms/pins';
 import {
   getBoards,
   createBoard,
-  // deleteBoard
 } from '../helpers/data/boardsData';
 import {
   deleteBoardPins,
   boardPinsInfo
 }
   from '../helpers/data/boardPinsData';
-// import boardInfo from '../components/forms/boardInfo';
 import {
-  // getPins,
   createPin,
   deletePin,
   getSinglePin,
@@ -37,7 +34,6 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-board')) {
-      // console.warn('clicked submit board', e.target.id);
       e.preventDefault();
       const boardObject = {
         image: document.querySelector('#board-image').value,
@@ -49,7 +45,6 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('submit-pin')) {
-      // console.warn('clicked submit pin', e.target.id);
       e.preventDefault();
       const pinObject = {
         image: document.querySelector('#pin-image').value,
@@ -61,21 +56,11 @@ const domEvents = (uid) => {
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
-    // READ
     if (e.target.id.includes('show-pin-btn')) {
-      // getPins(uid).then((pinsArray) => {
-      //   if (pinsArray.length) {
-      //     showPins(pinsArray);
-      //     console.warn(pinsArray);
-      //   } else {
-      //     emptyPins();
-      //   }
-      // });
+    // READ
       const boardId = e.target.id.split('--')[1];
       boardPinsInfo(boardId).then((boardInfoObject) => {
         showPins(boardInfoObject.pins);
-        // boardInfo(boardInfoObject.board);
-        // console.warn(boardInfoObject);
       });
     }
 
@@ -107,7 +92,6 @@ const domEvents = (uid) => {
         board_id: document.querySelector('#board').value,
         uid
       };
-      console.warn(firebaseKey, pinObject);
       updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
 
       $('#formModal').modal('toggle');
@@ -116,18 +100,17 @@ const domEvents = (uid) => {
     // DELETE
     if (e.target.id.includes('delete-board-btn')) {
       if (window.confirm('Delete this board and related pins?')) {
-        const authorId = e.target.id.split('--')[1];
-        deleteBoardPins(authorId, uid).then((boardsArray) => showBoards(boardsArray));
+        const boardId = e.target.id.split('--')[1];
+        deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }
 
     if (e.target.id.includes('delete-pin-btn')) {
       if (window.confirm('Delete this pin?')) {
         const firebaseKey = e.target.id.split('--')[1];
-        deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
+        deletePin(firebaseKey, uid).then((pinsArray) => showPins(pinsArray));
       }
     }
-    // dont mess with syntax below this comment
   });
 };
 
