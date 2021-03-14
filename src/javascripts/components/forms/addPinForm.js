@@ -1,7 +1,6 @@
 import selectBoard from './selectBoard';
 
 const addPinForm = (pinObject) => {
-  // document.querySelector('#add-button').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#board-container').innerHTML += `
   <form id="submit-pin-form" class="mb-4">

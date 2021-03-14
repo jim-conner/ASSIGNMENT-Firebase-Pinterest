@@ -1,8 +1,6 @@
 import selectBoard from './selectBoard';
 
 const updatePinForm = (pinObject) => {
-  // document.querySelector('#add-button').innerHTML = '';
-  // document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#modal-body').innerHTML += `
   <form id="update-pin-form" class="mb-4">
     <div div class="form-group">

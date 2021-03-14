@@ -4,7 +4,6 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 const getBoards = (uid) => new Promise((resolve, reject) => {
-  // console.warn(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`);
   axios.get(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
