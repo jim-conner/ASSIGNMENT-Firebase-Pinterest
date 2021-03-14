@@ -1,11 +1,8 @@
 # ASSIGNMENT-PINTEREST using Firebase
 
 ## Overview 
-Pinterest enables the user to add boards per subject,\
-then add pinned cards of interest related to the subject.
-Boards and cards can be deleted as well.\
-The project requires a Google account to log in.
-
+Pinterest enables the user to add boards per subject, then add pinned cards of interest related to the subject.\
+Boards and cards can be deleted as well.  The project requires a Google account to log in.
 
 ### Figma frames
 https://www.figma.com/file/2qwX4uFcGfwpeWFZ9bgPhO/Pinterest?node-id=0%3A1
